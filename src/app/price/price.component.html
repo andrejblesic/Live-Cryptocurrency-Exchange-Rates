@@ -1,0 +1,9 @@
+<div class="price-card">
+  <div class="price-head">
+    <h4>{{priceKey}}</h4>
+    <div class="triangle {{rise ? 'rise' : 'fall'}}"></div>
+  </div>
+  <div class="price-num">
+    <p [ngStyle]="{'color': color}">{{priceValue}}</p>
+  </div>
+</div>

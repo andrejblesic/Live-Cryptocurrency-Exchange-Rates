@@ -1,0 +1,15 @@
+<!-- <div class="card-wrapper">
+  <app-price *ngFor="let price of pipablePrices | async | keyvalue" [priceKey]="price?.key" [priceValue]="price?.value"></app-price>
+</div> -->
+
+<!-- <div class="card-wrapper">
+  <app-price *ngFor="let item of prices | async | keyvalue" [priceKey]="item?.key" [priceValue]="item?.value"></app-price>
+</div> -->
+
+<div class="card-wrapper">
+  <app-price *ngFor="let item of prices | async | keyvalue; trackBy: trackByFn" [priceKey]="item?.key" [priceValue]="item?.value"></app-price>
+</div>
+
+<!-- <div *ngFor="let item of priceHolder | keyvalue" class="card-wrapper">
+  <app-price [priceKey]="item?.key" [priceValue]="item?.value | async"></app-price>
+</div> -->
