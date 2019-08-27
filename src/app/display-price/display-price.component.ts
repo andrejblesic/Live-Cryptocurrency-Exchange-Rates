@@ -22,7 +22,7 @@ export class DisplayPriceComponent implements OnInit {
   prices = this.store ? this.store.select(state => state.message ? state.message.prices : null).pipe(share()) : null;
 
   ngOnInit() {
-    this.service.subToSocket();
+    this.service.subToData();
   }
 
   trackByFn(index, item) {
