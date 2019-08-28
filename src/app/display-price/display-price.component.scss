@@ -1,4 +1,5 @@
 .card-wrapper {
-  display: inline-block;
+  display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
 }

@@ -2,20 +2,19 @@
 
 .price-card {
   overflow: hidden;
-  font-family: "Varela Round", sans-serif;
+  font-family: 'Varela Round', sans-serif;
   display: inline-block;
-  margin: 16px;
+  margin: 10px;
   border-radius: 5px;
   background: darkorange;
   height: 150px;
   width: 200px;
   box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.4);
-  transition: box-shadow 150ms, transform 150ms, background-color 150ms, border-color 150ms;;
   border-top: 1px solid rgba(255, 255, 255, 0.5);
   border-left: 1px solid rgba(255, 255, 255, 0.5);
   box-sizing: border-box;
+  transition: box-shadow 150ms, transform 150ms, background-color 150ms;
   &:hover {
-    //border-color: rgba(255, 255, 255, 0.5);
     box-shadow: 4px 12px 12px rgba(0, 0, 0, 0.4);
     transform: translateY(-6px);
     background-color: orange;

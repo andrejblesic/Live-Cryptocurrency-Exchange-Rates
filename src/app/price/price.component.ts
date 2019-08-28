@@ -8,29 +8,27 @@ import { Component, OnInit, Input } from '@angular/core';
 export class PriceComponent {
 
   @Input() priceKey: string;
-  @Input() priceValue: string;
+  @Input() priceVal: string;
 
   constructor() {}
 
-  color: string;
+  private color: string;
+  private prevPriceVal: string;
+  private rise: boolean;
 
-  rise: boolean;
-
-  prevPrice: string;
-
-  ngOnChanges() {
-    if (this.prevPrice) {
-      if (this.prevPrice > this.priceValue) {
-        this.color = "red";
+  ngOnChanges(): void {
+    if (this.prevPriceVal) {
+      if (this.prevPriceVal > this.priceVal) {
+        this.color = 'red';
         this.rise = false;
-      } else if (this.prevPrice < this.priceValue) {
-        this.color = "green";
+      } else if (this.prevPriceVal < this.priceVal) {
+        this.color = 'green';
         this.rise = true;
       }
       setTimeout(() => {
-        this.color = "black";
+        this.color = 'black';
       }, 2500)
     }
-    this.prevPrice = this.priceValue;
+    this.prevPriceVal = this.priceVal;
   }
 }

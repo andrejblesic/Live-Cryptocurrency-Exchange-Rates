@@ -1,25 +1,29 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DisplayPriceComponent } from './display-price/display-price.component';
-import { WebsocketService } from "./websocket.service";
+import { WebsocketService } from './websocket.service';
 import { PriceComponent } from './price/price.component';
-import { StoreModule } from "@ngrx/store";
+import { StoreModule } from '@ngrx/store';
 import { HttpClientModule } from '@angular/common/http';
-import { priceReducer } from "./price.reducer";
+import { priceReducer } from './price.reducer';
+import { ConverterComponent } from './converter/converter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DisplayPriceComponent,
-    PriceComponent
+    PriceComponent,
+    ConverterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     StoreModule.forRoot({message: priceReducer})
   ],
   providers: [WebsocketService],
