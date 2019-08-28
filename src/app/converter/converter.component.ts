@@ -27,10 +27,6 @@ export class ConverterComponent implements OnInit {
     this.currencyPair = this.store.select(state => state.message ? (parseFloat(state.message.prices[$event.target.value])) : null).pipe(share());
   }
 
-  multiply(num, num2) {
-    return (num*num2).toFixed(8);
-  }
-
   ngOnInit() {
   }
 
