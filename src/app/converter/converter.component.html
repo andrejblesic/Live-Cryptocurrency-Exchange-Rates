@@ -3,6 +3,6 @@
     <option selected value="">Select a currency pair</option>
     <option *ngFor="let pair of currencyPairs; let i = index" type="text" name="" value="{{currencyPairs[i]}}">{{currencyPairs[i]}}</option>
   </select>
-  <input (input)="sendFactor($event)" class="factor" placeholder="Amount" type="number" name="" value="">
+  <input (input)="sendFactor($event)" min="0" class="factor" placeholder="Amount" type="number" name="" value="">
   <h2 *ngIf="pair" class="value">{{factor}} {{pair | formatpairs | slice: 0:1}} = {{(currencyPair | async) * factor | number:'1.0-8'}} {{pair | formatpairs | slice: -1}}</h2>
 </div>

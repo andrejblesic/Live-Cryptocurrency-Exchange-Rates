@@ -22,10 +22,8 @@ export class WebsocketService {
   public currencyPairs = [];
 
   public subToData(): void {
-    let data = this.priceHttp.pipe(map(data => {
-      return Object.keys(data).map(key => data[key].id);
-    })).subscribe(
-      message => {this.handlePriceTags(message)},
+    this.priceHttp.pipe(map(data => Object.keys(data).map(key => data[key].id))).subscribe(
+      message => this.handlePriceTags(message),
       error => console.log(error),
       () => console.log('HTTP request completed')
     );
