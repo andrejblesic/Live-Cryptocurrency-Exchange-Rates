@@ -1,4 +1,4 @@
-<app-converter [currencyPairs]="service.currencyPairs"></app-converter>
+<app-converter></app-converter>
 <div class="card-wrapper">
   <app-price *ngFor="let item of prices | async | keyvalue; trackBy: trackByFn" [priceKey]="item?.key" [priceVal]="item?.value"></app-price>
 </div>

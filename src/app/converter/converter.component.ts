@@ -18,16 +18,14 @@ export class ConverterComponent implements OnInit {
 
   constructor(private service: WebsocketService, private store: Store<AppState>) { }
 
-  @Input() currencyPairs;
-
   currencyPair: Observable<any>;
   factor: number = 1;
+  currencyPairs: Array<string> = this.service.currencyPairs;
 
   findPair($event) {
     this.currencyPair = this.store.select(state => state.message ? (parseFloat(state.message.prices[$event.target.value])) : null).pipe(share());
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

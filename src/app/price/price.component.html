@@ -4,6 +4,6 @@
     <div class="triangle {{rise ? 'rise' : 'fall'}}"></div>
   </div>
   <div class="price-num">
-    <p [ngStyle]="{'color': color}">{{priceVal}}</p>
+    <p [ngStyle]="{'color': color}">{{priceVal | number:'1.0-8'}}</p>
   </div>
 </div>

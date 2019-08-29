@@ -21,17 +21,19 @@ export class WebsocketService {
   private priceHttp = this.http.get('https://api.pro.coinbase.com/products');
   public currencyPairs = [];
 
-  public subToData() {
+  public subToData(): void {
     let data = this.priceHttp.pipe(map(data => {
       return Object.keys(data).map(key => data[key].id);
     })).subscribe(
-      message => {this.handlePriceTags(message); this.currencyPairs = message},
+      message => {this.handlePriceTags(message)},
       error => console.log(error),
-      () => console.log('Completed, request finished')
+      () => console.log('HTTP request completed')
     );
   }
 
   private handlePriceTags(message): void {
+    message.sort();
+    this.currencyPairs = message;
     this.priceSocket.next({
       'type': 'subscribe',
       'product_ids': message,
