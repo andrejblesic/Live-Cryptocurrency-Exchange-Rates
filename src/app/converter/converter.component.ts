@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
 import { WebsocketService } from "../websocket.service"
@@ -16,14 +16,20 @@ interface AppState {
 })
 export class ConverterComponent implements OnInit {
 
-  constructor(private service: WebsocketService, private store: Store<AppState>) { }
+  constructor(private service: WebsocketService) { }
 
-  currencyPair: Observable<any>;
-  factor: number = 1;
-  currencyPairs: Array<string> = this.service.currencyPairs;
+  @Output() selectedPair = new EventEmitter<string>();
+  @Output() selectedFactor = new EventEmitter<string>();
+  @Input() currencyPair;
+  @Input() currencyPairs;
+  @Input() factor;
 
-  findPair($event) {
-    this.currencyPair = this.store.select(state => state.message ? (parseFloat(state.message.prices[$event.target.value])) : null).pipe(share());
+  sendPair($event) {
+    this.selectedPair.next($event.target.value);
+  }
+
+  sendFactor($event) {
+    this.selectedFactor.next($event.target.value);
   }
 
   ngOnInit() {}
