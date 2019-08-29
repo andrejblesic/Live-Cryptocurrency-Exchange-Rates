@@ -11,13 +11,15 @@ import { StoreModule } from '@ngrx/store';
 import { HttpClientModule } from '@angular/common/http';
 import { priceReducer } from './price.reducer';
 import { ConverterComponent } from './converter/converter.component';
+import { FormatPairs } from './pipes/formatpairs';
 
 @NgModule({
   declarations: [
     AppComponent,
     DisplayPriceComponent,
     PriceComponent,
-    ConverterComponent
+    ConverterComponent,
+    FormatPairs
   ],
   imports: [
     BrowserModule,

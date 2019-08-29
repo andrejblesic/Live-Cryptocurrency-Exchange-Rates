@@ -16,13 +16,14 @@ interface AppState {
 })
 export class ConverterComponent implements OnInit {
 
-  constructor(private service: WebsocketService) { }
+  constructor() {}
 
   @Output() selectedPair = new EventEmitter<string>();
   @Output() selectedFactor = new EventEmitter<string>();
   @Input() currencyPair;
   @Input() currencyPairs;
   @Input() factor;
+  @Input() pair;
 
   sendPair($event) {
     this.selectedPair.next($event.target.value);

@@ -1,6 +1,6 @@
 <div class="price-card">
   <div class="price-head">
-    <h4>{{priceKey}}</h4>
+    <h4>{{priceKey | formatpairs | slice:0:1}}/{{priceKey | formatpairs | slice:-1}}</h4>
     <div class="triangle {{rise ? 'rise' : 'fall'}}"></div>
   </div>
   <div class="price-num">

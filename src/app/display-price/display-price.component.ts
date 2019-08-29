@@ -21,10 +21,11 @@ export class DisplayPriceComponent implements OnInit {
 
   private prices:object = this.store ? this.store.select(state => state.message ? state.message.prices : null).pipe(share()) : null;
   public currencyPair;
-  public currencyPairs = this.service.currencyPairs;
   public factor = 1;
+  public pair;
 
   findPair(pair) {
+    this.pair = pair;
     this.currencyPair = this.store.select(state => state.message ? (parseFloat(state.message.prices[pair])) : null).pipe(share());
   }
 
@@ -32,11 +33,12 @@ export class DisplayPriceComponent implements OnInit {
     this.factor = factor;
   }
 
+  trackByFn(index, item): string {
+    return index;
+  }
+
   ngOnInit(): void {
     this.service.subToData();
   }
 
-  trackByFn(index, item): string {
-    return index;
-  }
 }

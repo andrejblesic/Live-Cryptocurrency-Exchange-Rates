@@ -1,8 +1,8 @@
 <div class="converter">
   <select (change)="sendPair($event)" class="currency-pairs" name="currency-pairs">
-    <option value="Select currency pair">Select currency pair</option>
-    <option *ngFor="let pair of service.currencyPairs; let i = index" type="text" name="" value="{{service.currencyPairs[i]}}">{{service.currencyPairs[i]}}</option>
+    <option selected value="">Select a currency pair</option>
+    <option *ngFor="let pair of currencyPairs; let i = index" type="text" name="" value="{{currencyPairs[i]}}">{{currencyPairs[i]}}</option>
   </select>
-  <input (input)="sendFactor($event)" class="factor" placeholder="Amount" type="text" name="" value="1">
-  <h2 class="value">Value: {{(currencyPair | async) * factor | number:'1.0-8'}}</h2>
+  <input (input)="sendFactor($event)" class="factor" placeholder="Amount" type="number" name="" value="">
+  <h2 *ngIf="pair" class="value">{{factor}} {{pair | formatpairs | slice: 0:1}} = {{(currencyPair | async) * factor | number:'1.0-8'}} {{pair | formatpairs | slice: -1}}</h2>
 </div>
