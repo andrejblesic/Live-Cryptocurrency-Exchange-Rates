@@ -4,5 +4,5 @@
     <option *ngFor="let pair of currencyPairs; let i = index" type="text" name="" value="{{currencyPairs[i]}}">{{currencyPairs[i]}}</option>
   </select>
   <input [(ngModel)]="factor" class="factor" placeholder="Amount" type="text" name="" value="">
-  <h2 class="value">{{factor}} Value: {{currencyPair | async}}</h2>
+  <h2 class="value">{{factor}} Value: {{multiply(currencyPair | async, factor)}}</h2>
 </div>
