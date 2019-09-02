@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { prices } from './actions';
+import { newPrices, getUser } from './store/actions';
 import { webSocket } from 'rxjs/webSocket';
 import { Observable } from 'rxjs';
 
@@ -19,9 +19,13 @@ export class WebsocketService {
 
   private priceSocket = webSocket('wss://ws-feed.pro.coinbase.com');
   private priceHttp = this.http.get('https://api.pro.coinbase.com/products');
+  private userHttp = this.http.get('http://www.mocky.io/v2/5d6d4f4530000064008fbb59');
   public currencyPairs = [];
 
   public subToData(): void {
+    this.userHttp.subscribe(
+      message => this.dispatchUser(message)
+    )
     this.priceHttp.pipe(map(data => Object.keys(data).map(key => data[key].id))).subscribe(
       message => this.handlePriceTags(message),
       error => console.log(error),
@@ -44,7 +48,12 @@ export class WebsocketService {
     );
   }
 
+  private dispatchUser(message) {
+    console.log(typeof message.age);
+    this.store.dispatch(getUser({firstName:<string> message.firstName, lastName:<string> message.lastName, age:<number> message.age}))
+  }
+
   private dispatchPricePairs(message): void {
-    message.price ? this.store.dispatch(prices({product_id: message.product_id, price: message.price})) : null;
+    message.price ? this.store.dispatch(newPrices({product_id:<string> message.product_id, price:<number> parseFloat(message.price)})) : null;
   }
 }

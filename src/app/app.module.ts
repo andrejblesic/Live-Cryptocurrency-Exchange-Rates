@@ -9,7 +9,7 @@ import { WebsocketService } from './websocket.service';
 import { PriceComponent } from './price/price.component';
 import { StoreModule } from '@ngrx/store';
 import { HttpClientModule } from '@angular/common/http';
-import { priceReducer } from './price.reducer';
+import { priceReducer } from './store/price.reducer';
 import { ConverterComponent } from './converter/converter.component';
 import { FormatPairs } from './pipes/formatpairs';
 

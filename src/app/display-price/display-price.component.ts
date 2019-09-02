@@ -26,7 +26,7 @@ export class DisplayPriceComponent implements OnInit {
 
   findPair(pair) {
     this.pair = pair;
-    this.currencyPair = this.store.select(state => state.message ? (parseFloat(state.message.prices[pair])) : null).pipe(share());
+    this.currencyPair = this.store.select(state => state.message ? state.message.prices[pair] : null).pipe(share());
   }
 
   changeFactor(factor) {
