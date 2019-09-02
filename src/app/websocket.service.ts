@@ -49,11 +49,10 @@ export class WebsocketService {
   }
 
   private dispatchUser(message) {
-    console.log(typeof message.age);
     this.store.dispatch(getUser({firstName:<string> message.firstName, lastName:<string> message.lastName, age:<number> message.age}))
   }
 
   private dispatchPricePairs(message): void {
-    message.price ? this.store.dispatch(newPrices({product_id:<string> message.product_id, price:<number> parseFloat(message.price)})) : null;
+    this.store.dispatch(newPrices({product_id:<string> message.product_id, price:<number> parseFloat(message.price)}));
   }
 }
