@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ConverterComponent } from './components/converter/converter.component';
 import { FormatPairs } from '../../pipes/formatpairs';
 import { priceReducer } from '../../store/price.reducer';
+import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { priceReducer } from '../../store/price.reducer';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    StoreModule.forRoot({message: priceReducer})
+    SharedModule,
+    StoreModule.forRoot({message: priceReducer}),
   ],
   providers: [WebsocketService],
   exports: [DisplayPriceComponent]

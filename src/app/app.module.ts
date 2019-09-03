@@ -8,11 +8,12 @@ import { StoreModule } from '@ngrx/store';
 import { HttpClientModule } from '@angular/common/http';
 import { LivePricesModule } from './modules/live-prices/live-prices.module';
 import { LivePricesComponent } from './modules/live-prices/live-prices.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LivePricesComponent
+    LivePricesComponent,
   ],
   imports: [
     BrowserModule,
@@ -20,6 +21,7 @@ import { LivePricesComponent } from './modules/live-prices/live-prices.component
     HttpClientModule,
     FormsModule,
     LivePricesModule,
+    SharedModule
   ],
   bootstrap: [AppComponent]
 })
