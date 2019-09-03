@@ -16,7 +16,7 @@ interface AppState {
 })
 export class ConverterComponent implements OnInit {
 
-  constructor() {}
+  constructor() { }
 
   @Output() selectedPair = new EventEmitter<string>();
   @Output() selectedFactor = new EventEmitter<string>();
@@ -33,6 +33,5 @@ export class ConverterComponent implements OnInit {
     this.selectedFactor.next($event.target.value);
   }
 
-  ngOnInit() {}
-
+  ngOnInit() { }
 }

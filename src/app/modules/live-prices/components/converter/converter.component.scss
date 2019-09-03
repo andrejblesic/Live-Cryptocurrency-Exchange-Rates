@@ -9,7 +9,7 @@
   align-items: center;
   font-family: 'Varela Round', sans-serif;
   background-image: linear-gradient(to bottom right, aqua, #5BEADB);
-  margin: 100px auto 30px auto;
+  margin: 100px auto 30px;
   padding: 30px;
   width: auto;
   max-width: 500px;
@@ -20,9 +20,11 @@
   border-left: 1px solid #C0FDEC;
   box-shadow: 4px 4px 12px rgba(0,0,0,0.5);
   transition: box-shadow 200ms;
+
   &:hover {
     box-shadow: 4px 4px 40px rgba(0,0,0,0.5);
   }
+
   .factor {
     font-family: 'Varela Round', sans-serif;
     border-radius: 4px;
@@ -32,10 +34,12 @@
     height: 30px;
     border: none;
     box-shadow: inset 2px 2px 4px rgba(0,0,0,0.3);
+
     &:focus {
-      outline: 3px solid rgba(255, 165, 0, 0.5);
+      outline: 1px solid rgba(255, 165, 0, 0.5);
     }
   }
+
   .currency-pairs {
     font-family: 'Varela Round', sans-serif;
     border-radius: 4px;
@@ -44,10 +48,12 @@
     border: none;
     margin: 4px;
     box-shadow: inset 2px 2px 4px rgba(0,0,0,0.3);
+
     &:focus {
-      outline: 3px solid rgba(255, 165, 0, 0.5);
+      outline: 1px solid rgba(255, 165, 0, 0.5);
     }
   }
+
   .value {
     margin-left: 4px;
     padding: 10px;

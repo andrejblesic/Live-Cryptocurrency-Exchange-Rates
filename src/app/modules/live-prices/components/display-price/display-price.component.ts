@@ -7,7 +7,7 @@ import { share } from "rxjs/operators";
 import { map } from "rxjs/operators";
 
 interface AppState {
-  message: {prices: object};
+  message: { prices: object };
 }
 
 @Component({
@@ -17,9 +17,9 @@ interface AppState {
 })
 export class DisplayPriceComponent implements OnInit {
 
-  constructor(private service: WebsocketService, private store: Store<AppState>) {}
+  constructor(private service: WebsocketService, private store: Store<AppState>) { }
 
-  private prices:object = this.store ? this.store.select(state => state.message ? state.message.prices : null).pipe(share()) : null;
+  private prices: object = this.store ? this.store.select(state => state.message ? state.message.prices : null).pipe(share()) : null;
   public currencyPair;
   public factor: number = 1;
   public pair;

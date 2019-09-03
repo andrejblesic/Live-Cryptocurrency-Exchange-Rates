@@ -15,11 +15,13 @@
   border-left: 1px solid rgba(255, 255, 255, 0.5);
   box-sizing: border-box;
   transition: box-shadow 150ms, transform 150ms, background-color 150ms;
+
   &:hover {
     box-shadow: 4px 12px 12px rgba(0, 0, 0, 0.4);
     transform: translateY(-6px);
     background-color: orange;
   }
+
   .price-head {
     font-size: 20px;
     height: 30%;
@@ -27,27 +29,32 @@
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
-    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
     border-radius: 5px 5px 0 0;
     transition: box-shadow 150ms;
+
     &:hover {
-      box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
     }
+
     .triangle {
       height: 0;
       width: 0;
       border: 7px solid transparent;
       margin-left: 5px;
+
       &.rise {
         border-bottom: 10px solid green;
         position: relative;
         top: -5px;
       }
+
       &.fall {
         border-top: 10px solid red;
         position: relative;
         top: 3px;
       }
+
       &.undefined {
         width: 15px;
         height: 1px;
@@ -57,6 +64,7 @@
       }
     }
   }
+
   .price-num {
     pointer-events: none;
     height: 70%;
