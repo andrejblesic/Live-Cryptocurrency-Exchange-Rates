@@ -48,6 +48,13 @@
         position: relative;
         top: 3px;
       }
+      &.undefined {
+        width: 15px;
+        height: 1px;
+        border: none;
+        border-top: 3px solid black;
+        position: relative;
+      }
     }
   }
   .price-num {

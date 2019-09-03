@@ -1,7 +1,7 @@
 <div class="price-card">
   <div class="price-head">
     <h4>{{priceKey | formatpairs | slice:0:1}}/{{priceKey | formatpairs | slice:-1}}</h4>
-    <div class="triangle {{rise ? 'rise' : 'fall'}}"></div>
+    <div class="triangle {{rise === undefined ? 'undefined' : (rise === true ? 'rise' : 'fall')}}"></div>
   </div>
   <div class="price-num">
     <p [ngStyle]="{'color': color}">{{priceVal | number:'1.0-8'}}</p>
