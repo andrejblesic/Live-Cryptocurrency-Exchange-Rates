@@ -4,31 +4,23 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DisplayPriceComponent } from './display-price/display-price.component';
-import { WebsocketService } from './websocket.service';
-import { PriceComponent } from './price/price.component';
 import { StoreModule } from '@ngrx/store';
 import { HttpClientModule } from '@angular/common/http';
-import { priceReducer } from './store/price.reducer';
-import { ConverterComponent } from './converter/converter.component';
-import { FormatPairs } from './pipes/formatpairs';
+import { LivePricesModule } from './modules/live-prices/live-prices.module';
+import { LivePricesComponent } from './modules/live-prices/live-prices.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DisplayPriceComponent,
-    PriceComponent,
-    ConverterComponent,
-    FormatPairs
+    LivePricesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    StoreModule.forRoot({message: priceReducer})
+    LivePricesModule,
   ],
-  providers: [WebsocketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

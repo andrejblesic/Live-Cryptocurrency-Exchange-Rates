@@ -1,5 +1,5 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { WebsocketService } from "../websocket.service";
+import { WebsocketService } from "../services/websocket.service";
 import { BehaviorSubject } from "rxjs";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
@@ -7,7 +7,7 @@ import { share } from "rxjs/operators";
 import { map } from "rxjs/operators";
 
 interface AppState {
-  message;
+  message: {prices: object};
 }
 
 @Component({
@@ -21,7 +21,7 @@ export class DisplayPriceComponent implements OnInit {
 
   private prices:object = this.store ? this.store.select(state => state.message ? state.message.prices : null).pipe(share()) : null;
   public currencyPair;
-  public factor = 1;
+  public factor: number = 1;
   public pair;
 
   findPair(pair) {
