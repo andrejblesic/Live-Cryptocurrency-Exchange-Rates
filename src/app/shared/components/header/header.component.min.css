@@ -1,1 +1,1 @@
-@import url("https://fonts.googleapis.com/css?family=Varela+Round&display=swap");.header{font-family:'Varela Round', sans-serif}
+@import url("https://fonts.googleapis.com/css?family=Varela+Round&display=swap");.header{font-family:'Varela Round', sans-serif;width:100%;background-color:darkorange;height:60px;position:fixed;top:0;display:flex;justify-content:flex-end;align-items:center;z-index:1;box-shadow:3px 3px 6px rgba(0,0,0,0.3)}.header .username{padding-right:10px}

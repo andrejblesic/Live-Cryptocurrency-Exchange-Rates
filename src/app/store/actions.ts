@@ -1,5 +1,6 @@
 import { createAction, props } from '@ngrx/store';
-import { IPrice, IUser } from '../models/price';
+import { IPrice } from '../models/price';
+import { IUser } from '../models/user';
 
 export const NEW_PRICES = '[Websocket Service] New Prices';
 export const GET_USER = '[Websocket Service] Get User';
