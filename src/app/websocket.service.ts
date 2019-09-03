@@ -23,13 +23,10 @@ export class WebsocketService {
   public currencyPairs = [];
 
   public subToData(): void {
-    this.userHttp.subscribe(
-      message => this.dispatchUser(message)
-    )
     this.priceHttp.pipe(map(data => Object.keys(data).map(key => data[key].id))).subscribe(
       message => this.handlePriceTags(message),
       error => console.log(error),
-      () => console.log('HTTP request completed')
+      () => console.log('Successfully fetched crypto prices')
     );
   }
 
@@ -48,11 +45,26 @@ export class WebsocketService {
     );
   }
 
-  private dispatchUser(message) {
-    this.store.dispatch(getUser({firstName:<string> message.firstName, lastName:<string> message.lastName, age:<number> message.age}))
+  public fetchUser() {
+    this.userHttp.subscribe(
+      message => this.dispatchUser(message),
+      error => console.log(error),
+      () => console.log("Successfully fetched user data")
+    )
+  }
+
+  private dispatchUser(message): void {
+    this.store.dispatch(getUser({
+      firstName:<string> message.firstName,
+      lastName:<string> message.lastName,
+      age:<number> message.age
+    }));
   }
 
   private dispatchPricePairs(message): void {
-    this.store.dispatch(newPrices({product_id:<string> message.product_id, price:<number> parseFloat(message.price)}));
+    message.price ? this.store.dispatch(newPrices({
+      product_id:<string> message.product_id,
+      price:<number> parseFloat(message.price)}))
+      : null;
   }
 }
