@@ -39,7 +39,6 @@ export class DisplayPriceComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.subToData();
-    this.service.fetchUser();
   }
 
 }

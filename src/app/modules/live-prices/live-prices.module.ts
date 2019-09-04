@@ -20,7 +20,8 @@ import { SharedModule } from '../../shared/shared.module';
     DisplayPriceComponent,
     PriceComponent,
     ConverterComponent,
-    FormatPairs
+    FormatPairs,
+    LivePricesComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +33,7 @@ import { SharedModule } from '../../shared/shared.module';
     StoreModule.forRoot({message: priceReducer}),
   ],
   providers: [WebsocketService],
-  exports: [DisplayPriceComponent]
+  exports: [LivePricesComponent]
 })
 export class LivePricesModule {
   constructor() {}
