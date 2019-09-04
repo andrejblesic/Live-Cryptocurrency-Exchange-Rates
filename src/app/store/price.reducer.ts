@@ -1,6 +1,6 @@
 import * as price from './actions';
-import { IPrice } from '../models/price';
-import { IUser } from '../models/user';
+import { IPrice } from '../models/price.model';
+import { IUser } from '../models/user.model';
 
 interface State {
   prices: object,

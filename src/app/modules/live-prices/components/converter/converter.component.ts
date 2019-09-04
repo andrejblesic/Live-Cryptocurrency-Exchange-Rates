@@ -20,10 +20,10 @@ export class ConverterComponent implements OnInit {
 
   @Output() selectedPair = new EventEmitter<string>();
   @Output() selectedFactor = new EventEmitter<string>();
-  @Input() currencyPair;
-  @Input() currencyPairs;
-  @Input() factor;
-  @Input() pair;
+  @Input() currencyPair: string;
+  @Input() currencyPairs: string[];
+  @Input() factor: string[];
+  @Input() pair: string[];
 
   sendPair($event) {
     this.selectedPair.next($event.target.value);

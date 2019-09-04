@@ -10,7 +10,7 @@ export class PriceComponent {
   @Input() priceKey: string;
   @Input() priceVal: string;
 
-  constructor() {}
+  constructor() { }
 
   private color: string;
   private prevPriceVal: string;

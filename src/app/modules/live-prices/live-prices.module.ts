@@ -31,5 +31,5 @@ import { FormatPairsPipe } from '@app/pipes/formatpairs';
   exports: [LivePricesComponent]
 })
 export class LivePricesModule {
-  constructor() {}
+  constructor() { }
 }

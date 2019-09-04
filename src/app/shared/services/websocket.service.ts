@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Store } from '@ngrx/store';
 import { HttpClient } from '@angular/common/http';
+import { Store } from '@ngrx/store';
 import { map } from 'rxjs/operators';
 import { webSocket } from 'rxjs/webSocket';
-import { Observable } from 'rxjs';
 import { getUser, newPrices } from '@app/store/actions';
 
 interface AppState {
@@ -15,7 +14,7 @@ interface AppState {
 })
 export class WebsocketService {
 
-  constructor(private store: Store<AppState>, private http: HttpClient) {}
+  constructor(private store: Store<AppState>, private http: HttpClient) { }
 
   private priceSocket = webSocket('wss://ws-feed.pro.coinbase.com');
   private priceHttp = this.http.get('https://api.pro.coinbase.com/products');
@@ -30,7 +29,7 @@ export class WebsocketService {
     );
   }
 
-  private handlePriceTags(message): void {
+  private handlePriceTags(message: string[]): void {
     message.sort();
     this.currencyPairs = message;
     this.priceSocket.next({
@@ -53,18 +52,19 @@ export class WebsocketService {
     )
   }
 
-  private dispatchUser(message): void {
+  private dispatchUser(message: any): void {
     this.store.dispatch(getUser({
-      firstName:<string> message.firstName,
-      lastName:<string> message.lastName,
-      age:<number> message.age
+      firstName: <string>message.firstName,
+      lastName: <string>message.lastName,
+      age: <number>message.age
     }));
   }
 
   private dispatchPricePairs(message): void {
     message.price ? this.store.dispatch(newPrices({
-      product_id:<string> message.product_id,
-      price:<number> parseFloat(message.price)}))
+      product_id: <string>message.product_id,
+      price: <number>parseFloat(message.price)
+    }))
       : null;
   }
 }

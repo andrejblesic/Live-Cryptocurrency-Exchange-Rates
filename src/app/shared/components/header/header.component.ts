@@ -4,7 +4,7 @@ import { share } from 'rxjs/operators';
 import { WebsocketService } from "@app/shared/services/websocket.service";
 
 interface AppState {
-  message: {user: object}
+  message: { user: object }
 }
 
 @Component({
