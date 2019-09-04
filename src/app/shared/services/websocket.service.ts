@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { webSocket } from 'rxjs/webSocket';
 import { Observable } from 'rxjs';
+import { getUser, newPrices } from '@app/store/actions';
 
 interface AppState {
   payload: object;
