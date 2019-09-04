@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
-import { WebsocketService } from "../../services/websocket.service"
+import { WebsocketService } from "@app/shared/services/websocket.service";
 import { map } from 'rxjs/operators';
 import { share } from "rxjs/operators";
 

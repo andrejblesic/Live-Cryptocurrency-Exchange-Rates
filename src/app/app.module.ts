@@ -6,11 +6,10 @@ import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { HttpClientModule } from '@angular/common/http';
 import { LivePricesModule } from './modules/live-prices/live-prices.module';
-import { LivePricesComponent } from './modules/live-prices/live-prices.component';
-import { ConverterComponent } from './modules/live-prices/components/converter/converter.component';
 import { SharedModule } from './shared/shared.module';
 import { RouterModule, Routes } from '@angular/router';
-import { HeaderComponent } from './shared/components/header/header.component';
+import { LivePricesComponent } from './modules/live-prices/live-prices.component';
+import { priceReducer } from './store/price.reducer';
 
 const appRoutes: Routes = [
   { path: 'prices', component: LivePricesComponent },
@@ -24,13 +23,13 @@ const appRoutes: Routes = [
   imports: [
     RouterModule.forRoot(
       appRoutes,
-      // { enableTracing: true }
     ),
     BrowserModule,
     HttpClientModule,
     FormsModule,
     LivePricesModule,
-    SharedModule
+    SharedModule,
+    StoreModule.forRoot({message: priceReducer}),
   ],
   bootstrap: [AppComponent]
 })

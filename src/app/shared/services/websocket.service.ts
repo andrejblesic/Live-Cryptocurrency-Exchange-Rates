@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { newPrices, getUser } from '../../../store/actions';
 import { webSocket } from 'rxjs/webSocket';
 import { Observable } from 'rxjs';
 

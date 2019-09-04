@@ -7,7 +7,7 @@ import { HeaderComponent } from './components/header/header.component';
   imports: [
     CommonModule,
   ],
-  exports: [HeaderComponent]
+  exports: [HeaderComponent],
 })
 export class SharedModule {
   constructor() {}

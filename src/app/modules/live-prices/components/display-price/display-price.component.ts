@@ -1,5 +1,5 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { WebsocketService } from "../../services/websocket.service";
+import { WebsocketService } from "@app/shared/services/websocket.service";
 import { BehaviorSubject } from "rxjs";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
