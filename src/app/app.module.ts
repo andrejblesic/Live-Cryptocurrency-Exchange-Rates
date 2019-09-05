@@ -9,11 +9,11 @@ import { LivePricesModule } from './modules/live-prices/live-prices.module';
 import { SharedModule } from './shared/shared.module';
 import { RouterModule, Routes } from '@angular/router';
 import { LivePricesComponent } from './modules/live-prices/live-prices.component';
-import { priceReducer } from './store/price.reducer';
+import { reducer } from './store/price.reducer';
 
 const appRoutes: Routes = [
   { path: 'prices', component: LivePricesComponent },
-  { path: '', redirectTo: 'prices', pathMatch: 'full'}
+  { path: '', redirectTo: 'prices', pathMatch: 'full' }
 ]
 
 @NgModule({
@@ -29,7 +29,7 @@ const appRoutes: Routes = [
     FormsModule,
     LivePricesModule,
     SharedModule,
-    StoreModule.forRoot({message: priceReducer}),
+    StoreModule.forRoot({ message: reducer }),
   ],
   bootstrap: [AppComponent]
 })
